@@ -1,10 +1,11 @@
 import React, { FC } from 'react';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
+import ImageGridList from '../component/GridList';
 
 const useStyles = makeStyles(() =>
   createStyles({
     root: {
-      backgroundImage: 'url(/img/komaru.png)',
+      backgroundImage: 'url(img/komaru.png)',
       backgroundSize: 'cover',
       backgroundPosition: 'center center',
       height: '100vh',
@@ -22,23 +23,51 @@ const useStyles = makeStyles(() =>
       borderRadius: '20px',
       backgroundColor: 'rgba(255,255,255,0.7)',
     },
+    new: {
+      textAlign: 'center',
+      color: '#444'
+    }
+
   }),
 );
 
-const Index: FC = () => {
+type Props = {
+  imageUrls: string[];
+};
+
+const Index: FC<Props> = (props) => {
   const classes = useStyles();
 
+  const { imageUrls } = props;
+
   return (
-    <div className={classes.root}>
-      <div className={classes.logoWrapper}>
-        <img
-          className={classes.logo}
-          src="/img/komaruLogo.png"
-          alt="#こまるちゃんタイマー部"
-        />
+    <>
+      <div className={classes.root}>
+        <div className={classes.logoWrapper}>
+          <img
+            className={classes.logo}
+            src="/img/komaruLogo.png"
+            alt="#こまるちゃんタイマー部"
+          />
+        </div>
       </div>
-    </div>
+      <h2 className={classes.new}>最新の投稿</h2>
+      <ImageGridList imageUrls={imageUrls} />
+    </>
   );
 };
 
+// This gets called on every request
+const getServerSideProps = async () => {
+  // Fetch data from external API
+  const res = await fetch(
+    `https://komaruchan.vercel.app/api/twitter?key=funfun`,
+  );
+  const imageUrls = await res.json();
+
+  // Pass data to the page via props
+  return { props: { imageUrls } };
+};
+
 export default Index;
+export { getServerSideProps };
