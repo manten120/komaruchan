@@ -1,3 +1,28 @@
+<h2 align="center">#こまるちゃんタイマー部のホームページ</h2>
+
+![キaャプチャ](https://user-images.githubusercontent.com/61675236/99218240-4adb9800-281d-11eb-8f18-9b53170c23fe.PNG)
+
+## 🌐 URL
+### **https://komaruchan.vercel.app**
+
+<br/>
+
+## ⏰ こまるちゃんタイマー部とは？
+### [dretec学習タイマー](https://www.amazon.co.jp/stores/page/B95D060A-9F2D-4357-815C-480A2E7D9D87)の愛用者グループです
+🐸こまるちゃんが部長さん⛄
+
+<br/>
+
+## ㊙ ホームページの特徴
+
+Twitterを介して画像を掲載できます
+
+管理者([Manten2nd](https://twitter.com/Manten2nd))がリツイートしたハッシュタグ`#こまるちゃんタイマー部`付きのツイートの添付画像1枚目がHPに掲載されます
+
+[dretec学習タイマー](https://www.amazon.co.jp/stores/page/B95D060A-9F2D-4357-815C-480A2E7D9D87)を購入したらハッシュタグをつけてツイートしよう！
+
+<br />
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
