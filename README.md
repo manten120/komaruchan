@@ -15,12 +15,13 @@
 
 ## ㊙ ホームページの特徴
 
-Twitterを介して画像を掲載できます
+### Twitterを介して画像を掲載できます
 
 管理者([Manten2nd](https://twitter.com/Manten2nd))がリツイートしたハッシュタグ`#こまるちゃんタイマー部`付きのツイートの添付画像1枚目がHPに掲載されます
 
-[dretec学習タイマー](https://www.amazon.co.jp/stores/page/B95D060A-9F2D-4357-815C-480A2E7D9D87)を購入したらハッシュタグをつけてツイートしよう！
+**[dretec学習タイマー](https://www.amazon.co.jp/stores/page/B95D060A-9F2D-4357-815C-480A2E7D9D87)を購入したら写真とハッシュタグをつけてツイートしよう！**
 
+<br />
 <br />
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
