@@ -26,6 +26,7 @@ const MyApp: FC<AppProps> = (props) => {
     <CacheProvider value={cache}>
       <Head>
         <title>こまるちゃんタイマー部</title>
+        <meta name="description" content="dretec学習タイマーの愛用者グループ「こまるちゃんタイマー部」のホームページです" />
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
       <ThemeProvider theme={theme}>
