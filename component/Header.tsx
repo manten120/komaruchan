@@ -5,10 +5,10 @@ const useStyles = makeStyles(() =>
   createStyles({
     root: {
       backgroundImage: 'url(img/komaru.png)',
-      backgroundAttachment: 'fixed',
+      // backgroundAttachment: 'fixed',
       backgroundSize: 'cover',
       backgroundPosition: 'center center',
-      height: '100vh',
+      height: '300px',
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
@@ -21,7 +21,7 @@ const useStyles = makeStyles(() =>
     logoWrapper: {
       margin: '0 auto',
       width: '92%',
-      maxWidth: '560px',
+      maxWidth: '400px',
       borderRadius: '20px',
       backgroundColor: 'rgba(255,255,255,0.7)',
     },
