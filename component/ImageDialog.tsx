@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import {
   createStyles,
+  makeStyles,
   Theme,
   withStyles,
   WithStyles,
@@ -22,15 +23,6 @@ const styles = (theme: Theme) =>
       right: theme.spacing(2),
       top: theme.spacing(0),
       color: theme.palette.grey[500],
-    },
-    imageButton: {
-      backgroundColor: 'red',
-      paddingBottom: '100%',
-      backgroundImage: 'url(https://pbs.twimg.com/media/ElgoTqeVMAAwU92.jpg)',
-      backgroundPosition: 'center center',
-      backgroundSize: 'cover',
-      margin: '2px',
-      borderRadius: '8px',
     },
   });
 
@@ -63,11 +55,38 @@ const DialogContent = withStyles((theme: Theme) => ({
   },
 }))(MuiDialogContent);
 
+const useStyles = makeStyles(() =>
+  createStyles({
+    thumbnailWrapper: {
+      width: '100%',
+    },
+    thumbnail: ({ imageUrl }: { imageUrl: string }) => ({
+      paddingBottom: '100%',
+      backgroundImage: `url(${imageUrl})`,
+      backgroundPosition: 'center center',
+      backgroundSize: 'cover',
+      margin: '2px',
+      borderRadius: '8px',
+      transition: 'all 0.2s ease-out',
+      transform: 'matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)',
+      willChange: 'transform',
+      '&:hover': {
+        transform: 'matrix3d(1, 0, 0, 0, 0, 1, 0, 0,0, 0, 1, 0, 0, 0, 0, 1.05)',
+        opacity: '0.8',
+      },
+    }),
+    dialogImage: { width: '100%', verticalAlign: 'top' },
+  }),
+);
+
 type Props = {
   imageUrl: string;
 };
 
-const ImageDialog: FC<Props> = ({ imageUrl }) => {
+const ImageDialog: FC<Props> = (props) => {
+  const { imageUrl } = props;
+  const classes = useStyles({ imageUrl });
+
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -80,18 +99,11 @@ const ImageDialog: FC<Props> = ({ imageUrl }) => {
 
   return (
     <div>
-      <div style={{ width: '100%' }}>
+      <div className={classes.thumbnailWrapper}>
         <div
+          className={classes.thumbnail}
           onClick={handleClickOpen}
           aria-hidden="true"
-          style={{
-            paddingBottom: '100%',
-            backgroundImage: `url(${imageUrl})`,
-            backgroundPosition: 'center center',
-            backgroundSize: 'cover',
-            margin: '2px',
-            borderRadius: '8px',
-          }}
         />
       </div>
 
@@ -103,9 +115,9 @@ const ImageDialog: FC<Props> = ({ imageUrl }) => {
         <DialogTitle id="customized-dialog-title" onClose={handleClose} />
         <DialogContent>
           <img
-            style={{ width: '100%', verticalAlign: 'top' }}
+            className={classes.dialogImage}
             src={imageUrl}
-            alt=""
+            alt="タイマーの画像"
           />
         </DialogContent>
       </Dialog>

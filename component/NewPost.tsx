@@ -1,12 +1,12 @@
 import React, { FC, useState } from 'react';
-import { Theme, createStyles, makeStyles } from '@material-ui/core/styles';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
-import Hidden from '@material-ui/core/Hidden';
 import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 import ImageDialog from './ImageDialog';
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(() =>
   createStyles({
     root: {
       padding: '50px 16px',
@@ -17,14 +17,10 @@ const useStyles = makeStyles((theme: Theme) =>
       fontWeight: 'bold',
       marginBottom: '40px',
     },
-    square: {
-      backgroundColor: 'red',
-      paddingBottom: '100%',
-      backgroundImage: 'url(https://pbs.twimg.com/media/ElgoTqeVMAAwU92.jpg)',
-      backgroundPosition: 'center center',
-      backgroundSize: 'cover',
-      margin: '2px',
-      borderRadius: '8px',
+    showMoreImageButton: {
+      color: '#666',
+      display: 'block',
+      margin: '30px auto',
     },
   }),
 );
@@ -34,11 +30,16 @@ type Props = {
 };
 
 const NewPost: FC<Props> = (props) => {
-  const { imageUrls } = props;
   const classes = useStyles();
+  const { imageUrls } = props;
+  const [numberOfThumbnail, setNumberOfThumbnail] = useState(16);
+
+  const showMoreImage = () => {
+    setNumberOfThumbnail((prevState) => prevState + 12);
+  };
 
   return (
-    <Container className={classes.root} maxWidth="sm">
+    <Container className={classes.root} maxWidth="md">
       <Typography
         className={classes.title}
         variant="h5"
@@ -47,15 +48,27 @@ const NewPost: FC<Props> = (props) => {
       >
         最新の投稿
       </Typography>
+
       <Grid container spacing={0}>
-        {imageUrls.map((imageUrl) => {
-          return (
-            <Grid item xs={4}>
-              <ImageDialog imageUrl={imageUrl} />
-            </Grid>
-          );
-        })}
+        {imageUrls
+          .map((imageUrl) => {
+            return (
+              <Grid item xs={3} key={imageUrl}>
+                <ImageDialog imageUrl={imageUrl} />
+              </Grid>
+            );
+          })
+          .slice(0, numberOfThumbnail)}
       </Grid>
+
+      <Button
+        className={classes.showMoreImageButton}
+        variant="outlined"
+        onClick={showMoreImage}
+        disabled={numberOfThumbnail >= imageUrls.length}
+      >
+        もっと見る
+      </Button>
     </Container>
   );
 };
