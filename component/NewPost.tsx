@@ -9,13 +9,14 @@ import ImageDialog from './ImageDialog';
 const useStyles = makeStyles(() =>
   createStyles({
     root: {
-      padding: '50px 16px',
+      padding: '50px 16px 16px',
     },
     title: {
-      color: '#545454',
       textAlign: 'center',
-      fontWeight: 'bold',
       marginBottom: '40px',
+      color: '#545454',
+      textShadow:'3px 0 5px #FFF',
+      fontWeight: 'bold',
     },
     showMoreImageButton: {
       color: '#666',

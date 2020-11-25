@@ -4,15 +4,16 @@ import { makeStyles, createStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles(() =>
   createStyles({
     root: {
+      position: 'relative',
+      height: '500px',
+      marginBottom: '-150px',
+      zIndex: -1,
       backgroundImage: 'url(img/komaru.png)',
-      // backgroundAttachment: 'fixed',
       backgroundSize: 'cover',
       backgroundPosition: 'center center',
-      height: '300px',
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      overflow: 'hidden',
     },
     logo: {
       width: '100%',
@@ -23,8 +24,17 @@ const useStyles = makeStyles(() =>
       width: '92%',
       maxWidth: '400px',
       borderRadius: '20px',
-      backgroundColor: 'rgba(255,255,255,0.7)',
+      backgroundColor: 'rgba(255, 255, 255, 0.7)',
+      transform: 'translateY(-50px)',
     },
+    fadeOut: {
+      position: 'absolute',
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0,
+      background: 'linear-gradient(to bottom, transparent 50%, #FFF )',
+    }
   }),
 );
 
@@ -33,6 +43,7 @@ const Header: FC = () => {
 
   return (
     <div className={classes.root}>
+      <div className={classes.fadeOut}/>
       <div className={classes.logoWrapper}>
         <img
           className={classes.logo}
