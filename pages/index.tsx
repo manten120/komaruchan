@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import Header from '../component/Header';
 import NewPost from '../component/NewPost';
+import WhatIs from '../component/WhatIs';
 
 type Props = {
   imageUrls: string[];
@@ -13,6 +14,7 @@ const Index: FC<Props> = (props) => {
     <>
       <Header />
       <NewPost imageUrls={imageUrls} />
+      <WhatIs />
     </>
   );
 };
