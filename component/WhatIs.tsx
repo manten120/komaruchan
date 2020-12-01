@@ -7,12 +7,16 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles(() =>
   createStyles({
     root: {
-      padding: '50px 16px 16px',
-      height: '800px',
+      marginTop: '-200px',
+      padding: '250px 16px 100px',
+      backgroundImage: 'url(img/komaruhaikei.png)',
+      backgroundPosition: 'repeat',
+      backgroundColor: 'rgba(255,255,255,0.7)',
+      backgroundBlendMode: 'lighten',
     },
     title: {
       textAlign: 'center',
-      marginBottom: '40px',
+      marginBottom: '80px',
       color: '#545454',
       textShadow: '3px 0 5px #FFF',
       fontWeight: 'bold',
@@ -25,7 +29,17 @@ const useStyles = makeStyles(() =>
       width: '100%',
       paddingBottom: '100%',
       borderRadius: '8px',
-      backgroundColor: 'skyblue' /* 背景色 */,
+      backgroundColor: '#FFF' /* 背景色 */,
+      border: '4px solid #CCC',
+      position: 'relative',
+    },
+    komaruchan: {
+      width: '100%',
+      block: 'display',
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
     },
   }),
 );
@@ -34,8 +48,8 @@ const WhatIs: FC = () => {
   const classes = useStyles();
 
   return (
-    <div className="root">
-      <Container className={classes.root} maxWidth="md">
+    <div className={classes.root}>
+      <Container maxWidth="md">
         <Typography
           className={classes.title}
           variant="h5"
@@ -47,7 +61,13 @@ const WhatIs: FC = () => {
         <Grid container spacing={0}>
           <Grid item xs={12} sm={4}>
             <div className={classes.squareWrapper}>
-              <div className={classes.square} />
+              <div className={classes.square}>
+                <img
+                  className={classes.komaruchan}
+                  src="img/dretec.jpg"
+                  alt="タイマー"
+                />
+              </div>
             </div>
             <Typography
               className={classes.title}
@@ -65,7 +85,13 @@ const WhatIs: FC = () => {
           </Grid>
           <Grid item xs={12} sm={4}>
             <div className={classes.squareWrapper}>
-              <div className={classes.square} />
+              <div className={classes.square}>
+                <img
+                  className={classes.komaruchan}
+                  src="img/komaruchan.png"
+                  alt="こまるちゃん"
+                />
+              </div>
             </div>
             <Typography
               className={classes.title}
@@ -80,8 +106,14 @@ const WhatIs: FC = () => {
             </Typography>
           </Grid>
           <Grid item xs={12} sm={4}>
-            <div className={classes.squareWrapper}>
-              <div className={classes.square} />
+          <div className={classes.squareWrapper}>
+              <div className={classes.square}>
+                <img
+                  className={classes.komaruchan}
+                  src="img/sampleTweet.PNG"
+                  alt="ツイート"
+                />
+              </div>
             </div>
             <Typography
               className={classes.title}
